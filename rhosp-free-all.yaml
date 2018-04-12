@@ -1,0 +1,7 @@
+- hosts: control
+  gather_facts: no
+  tasks:
+    - shell: date && free
+      register: free
+
+    - debug: var=free.stdout_lines

@@ -1,0 +1,10 @@
+- hosts: compute
+  tasks:
+  - name: fetch openstack logs
+    fetch:
+      src: "{{ item }}"
+      dest: /home/stack/myproject/logs/{{ inventory_hostname }}/
+      flat: yes
+    with_items:
+      - /var/log/nova/nova-compute.log
+    become: true

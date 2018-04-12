@@ -1,0 +1,7 @@
+- hosts: control
+  gather_facts: no
+  tasks:
+    - shell: date && openstack-status
+      register: openstackstatus
+
+    - debug: var=openstackstatus.stdout_lines
